@@ -1,19 +1,25 @@
 ---
+// SVGs for these tools need to be added to /public/svg/
+// Download from: https://simpleicons.org or https://devicons.github.io/devicon/
+// Filenames must match exactly as listed below.
+// Tools that already exist in the template's /public/svg/: python, HTML5, CSS3, bash, git, mysql
+// Tools to download and add: wireshark, metasploit, nmap, darktrace, wazuh, fortinet, tableau, figma, wordpress, r
+
 const technologies = [
-  "astro",
-  "vue",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "next",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "supabase",
-  "mysql",
-  "bash",
+  { name: "Python",      file: "python" },
+  { name: "Wireshark",   file: "wireshark" },
+  { name: "Metasploit",  file: "metasploit" },
+  { name: "Nmap",        file: "nmap" },
+  { name: "Darktrace",   file: "darktrace" },
+  { name: "Wazuh",       file: "wazuh" },
+  { name: "Fortinet",    file: "fortinet" },
+  { name: "Tableau",     file: "tableau" },
+  { name: "Figma",       file: "figma" },
+  { name: "WordPress",   file: "wordpress" },
+  { name: "HTML",        file: "HTML5" },
+  { name: "CSS",         file: "CSS3" },
+  { name: "R",           file: "r" },
+  { name: "Git",         file: "git" },
 ];
 ---
 
@@ -24,13 +30,13 @@ const technologies = [
   <div class="flex animate-scroll w-max will-change-transform">
     {
       [...technologies, ...technologies].map((tech, index) => (
-        <div 
+        <div
           class="flex items-center gap-2 pr-12 md:pr-20 group transition-all duration-300"
           aria-hidden={index >= technologies.length ? "true" : "false"}
         >
           <img
-            src={`/svg/${tech}.svg`}
-            alt={tech}
+            src={`/svg/${tech.file}.svg`}
+            alt={tech.name}
             class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
             width="30"
             height="30"
@@ -38,7 +44,7 @@ const technologies = [
             decoding="async"
           />
           <span class="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
+            {tech.name}
           </span>
         </div>
       ))
