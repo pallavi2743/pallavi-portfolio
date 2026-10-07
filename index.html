@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Pallavi Sunil — Cybersecurity Analyst</title>
+  <meta name="description" content="Pallavi Sunil — Master's student in Cybersecurity. SOC threat detection, penetration testing, and deep learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0e0e;
+      --bg2: #141414;
+      --border: rgba(255,255,255,0.08);
+      --white: #f0f0f0;
+      --muted: #6b6b6b;
+      --sec: #a476ff;
+      --sec-dim: rgba(164,118,255,0.15);
+      --card: rgba(20,20,20,0.9);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2rem;
+      background: rgba(14,14,14,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-name { font-weight: 600; font-size: 1rem; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 0.875rem; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* LAYOUT */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+    /* HERO */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 5rem;
+    }
+    .hero-inner { width: 100%; padding: 4rem 0 3rem; }
+    .hero-eyebrow {
+      font-size: 0.95rem; color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .accent {
+      background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 4s linear infinite;
+    }
+    @keyframes shine {
+      0% { background-position: 100% 50%; }
+      50% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .hero-desc {
+      font-size: 1.1rem; color: #a0a0a0;
+      max-width: 560px; line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-desc strong { color: var(--white); font-weight: 500; }
+    .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-icon {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 0.875rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-icon:hover { color: var(--white); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+    .btn-icon svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    /* LOGO WALL */
+    .logowall-wrap {
+      position: relative; overflow: hidden;
+      padding: 1.5rem 0; margin: 2rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .logowall-fade-l, .logowall-fade-r {
+      position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+    }
+    .logowall-fade-l { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .logowall-fade-r { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+    .logowall-track {
+      display: flex; gap: 0; width: max-content;
+      animation: scrollwall 40s linear infinite;
+    }
+    .logowall-track:hover { animation-play-state: paused; }
+    @keyframes scrollwall {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .logowall-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0 2.5rem;
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 0.9rem; font-weight: 500;
+    }
+    .logowall-item .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--sec); opacity: 0.5; flex-shrink: 0;
+    }
+
+    /* SKILLS */
+    #skills { padding: 5rem 0; border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.85rem; color: var(--sec); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+    .section-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 2.5rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .skill-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      overflow: hidden;
+    }
+    .skill-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .skill-card-header:hover { background: rgba(255,255,255,0.03); }
+    .skill-card-header-left { display: flex; align-items: center; gap: 0.75rem; }
+    .skill-icon { color: var(--sec); flex-shrink: 0; }
+    .skill-title { font-size: 0.95rem; font-weight: 500; }
+    .skill-chevron {
+      color: var(--muted); transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .skill-card.open .skill-chevron { transform: rotate(180deg); }
+    .skill-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.25rem;
+    }
+    .skill-card.open .skill-body { max-height: 300px; padding: 0 1.25rem 1rem; }
+    .skill-body ul { list-style: none; }
+    .skill-body li {
+      font-size: 0.85rem; color: var(--muted);
+      padding: 0.3rem 0;
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .skill-body li::before { content: '•'; color: var(--sec); flex-shrink: 0; margin-top: 0.1rem; }
+
+    /* PROJECTS */
+    #projects { padding: 5rem 0; border-top: 1px solid var(--border); }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: rgba(164,118,255,0.3); transform: translateY(-2px); }
+    .project-img {
+      width: 100%; height: 180px; object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+    }
+    .project-img-placeholder {
+      width: 100%; height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .project-body { padding: 1.25rem; }
+    .project-tag {
+      display: inline-block;
+      font-size: 0.7rem; color: var(--sec);
+      background: var(--sec-dim);
+      border-radius: 6px; padding: 0.2rem 0.6rem;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+    .project-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.3; }
+    .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* EXPERIENCE */
+    #experience { padding: 5rem 0; border-top: 1px solid var(--border); }
+    .exp-list { display: flex; flex-direction: column; gap: 1px; }
+    .exp-item {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 2rem; padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date { font-size: 0.8rem; color: var(--muted); padding-top: 0.2rem; line-height: 1.5; }
+    .exp-role { font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem; }
+    .exp-company { font-size: 0.875rem; color: var(--sec); margin-bottom: 0.75rem; }
+    .exp-bullets { list-style: none; }
+    .exp-bullets li {
+      font-size: 0.85rem; color: var(--muted);
+      padding: 0.25rem 0;
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .exp-bullets li::before { content: '—'; color: var(--border); flex-shrink: 0; }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-name { font-size: 0.875rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1rem; }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .container { padding: 0 1.25rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .exp-date { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Pallavi Sunil</span>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+  </div>
+</nav>
+
+<main>
+  <section id="home">
+    <div class="container">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Hi, I'm Pallavi Sunil</p>
+        <h1 class="hero-title">
+          Cybersecurity<br>
+          <span class="accent">Analyst</span>
+        </h1>
+        <p class="hero-desc">
+          Master's student in Cybersecurity with hands-on experience in
+          <strong>SOC threat detection</strong>, penetration testing, and security tool development.
+          Passionate about building smarter defences through data analytics and deep learning.
+        </p>
+        <div class="hero-links">
+          <a href="https://linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank" class="btn-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.336 18.339h-2.666v-4.177c0-.996-.02-2.278-1.388-2.278-1.39 0-1.601 1.084-1.601 2.204v4.251h-2.666V9.75h2.56v1.17h.036c.356-.675 1.226-1.387 2.526-1.387 2.703 0 3.203 1.779 3.203 4.092v4.714zM7.004 8.575a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm1.337 9.764H5.667V9.75H8.34v8.589zM19.67 3H4.329C3.594 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.329 21H19.67C20.404 21 21 20.42 21 19.703V4.297C21 3.58 20.404 3 19.67 3z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:pallavi2743@gmail.com" class="btn-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"/></svg>
+            Email
+          </a>
+        </div>
+
+        <!-- LOGO WALL -->
+        <div class="logowall-wrap" style="margin-top:3rem;">
+          <div class="logowall-fade-l"></div>
+          <div class="logowall-fade-r"></div>
+          <div class="logowall-track" id="logoTrack"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label">Capabilities</p>
+      <h2 class="section-title">What I do</h2>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label">My work</p>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-list" id="expList"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">© 2026 Pallavi Sunil. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank" class="btn-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M18.336 18.339h-2.666v-4.177c0-.996-.02-2.278-1.388-2.278-1.39 0-1.601 1.084-1.601 2.204v4.251h-2.666V9.75h2.56v1.17h.036c.356-.675 1.226-1.387 2.526-1.387 2.703 0 3.203 1.779 3.203 4.092v4.714zM7.004 8.575a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm1.337 9.764H5.667V9.75H8.34v8.589zM19.67 3H4.329C3.594 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.329 21H19.67C20.404 21 21 20.42 21 19.703V4.297C21 3.58 20.404 3 19.67 3z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:pallavi2743@gmail.com" class="btn-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // LOGO WALL
+  const tools = [
+    'Python','Wireshark','Metasploit','Nmap','Darktrace',
+    'Wazuh','Fortinet','Tableau','Figma','WordPress','HTML','CSS','R','Git'
+  ];
+  const track = document.getElementById('logoTrack');
+  const allTools = [...tools, ...tools];
+  allTools.forEach(t => {
+    const el = document.createElement('div');
+    el.className = 'logowall-item';
+    el.innerHTML = `<span class="dot"></span>${t}`;
+    track.appendChild(el);
+  });
+
+  // SKILLS
+  const skillsData = [
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+      title: 'Security Operations & Threat Detection',
+      items: [
+        'Real-time threat analysis in SOC environments',
+        'Darktrace Threat Visualiser for anomaly detection',
+        'Wazuh SIEM — custom rule development',
+        'Log4j vulnerability simulation & detection',
+        'Fortinet / FortiGuard security tools',
+      ]
+    },
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>`,
+      title: 'Penetration Testing & Vulnerability Assessment',
+      items: [
+        'OWASP Top 10:2025 web application testing',
+        'Metasploit for exploit development',
+        'Nmap & Wireshark for network reconnaissance',
+        'Privilege escalation & system reconnaissance',
+        'Penetration test report writing',
+      ]
+    },
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+      title: 'Data Analytics & Machine Learning',
+      items: [
+        'GNN-based Intrusion Detection System (GraphSAGE)',
+        'Cybersecurity drill recommendation with deep learning',
+        'Python, R, Tableau for data analysis',
+        'Google Data Analytics Certificate',
+        'AI Fundamentals — IBM SkillsBuild',
+      ]
+    },
+    {
+      icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01"/></svg>`,
+      title: 'UI/UX & Web Development',
+      items: [
+        'Figma wireframing & UX design',
+        'WordPress & WIX website development',
+        'HTML & CSS front-end development',
+        'LMS & Transport Management Platform UX',
+      ]
+    },
+  ];
+
+  const grid = document.getElementById('skillsGrid');
+  skillsData.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'skill-card';
+    card.innerHTML = `
+      <div class="skill-card-header">
+        <div class="skill-card-header-left">
+          <span class="skill-icon">${s.icon}</span>
+          <span class="skill-title">${s.title}</span>
+        </div>
+        <svg class="skill-chevron" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13.17 16.95 8.22 18.36 9.64 12 16 5.64 9.64 7.05 8.22 12 13.17Z"/></svg>
+      </div>
+      <div class="skill-body">
+        <ul>${s.items.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>`;
+    card.querySelector('.skill-card-header').addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+    grid.appendChild(card);
+  });
+
+  // PROJECTS
+  const projects = [
+    {
+      emoji: '🔐',
+      tag: 'Research Project',
+      title: 'GNN-Based Intrusion Detection System',
+      desc: 'Graph neural network using a k-NN similarity graph and GraphSAGE architecture to detect and classify network intrusion attacks.',
+    },
+    {
+      emoji: '🧠',
+      tag: "Master's Thesis",
+      title: 'Cybersecurity Drill Recommendation System',
+      desc: 'Deep learning model that personalises incident response exercises for organisational security teams based on skill gaps and threat landscape.',
+    },
+    {
+      emoji: '🐛',
+      tag: 'Internship — Cytomate',
+      title: 'Log4j Vulnerability Simulator',
+      desc: 'Python-based Log4j vulnerability simulator with specific JNDI injection payload detection for security testing environments.',
+    },
+    {
+      emoji: '🛡️',
+      tag: 'Internship — Cytomate',
+      title: 'Wazuh Credential Theft Detection Rules',
+      desc: 'Custom Wazuh SIEM rules for detecting credential theft attempts across multiple browsers, developed as part of penetration testing work.',
+    },
+  ];
+
+  const pg = document.getElementById('projectsGrid');
+  projects.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.innerHTML = `
+      <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a1020,#120a20)">${p.emoji}</div>
+      <div class="project-body">
+        <span class="project-tag">${p.tag}</span>
+        <h3 class="project-title">${p.title}</h3>
+        <p class="project-desc">${p.desc}</p>
+      </div>`;
+    pg.appendChild(card);
+  });
+
+  // EXPERIENCE
+  const experience = [
+    {
+      date: 'Jun – Sep 2026',
+      role: 'Cybersecurity Intern',
+      company: 'Cytomate · Doha, Qatar',
+      bullets: [
+        'Conducted OWASP Top 10:2025 penetration testing on decoy web application',
+        'Authored detailed pentest report with attack chains, business impact assessment, and remediation recommendations',
+        'Developed Wazuh rules for credential theft detection across multiple browsers',
+        'Built a Log4j vulnerability simulator using Python with JNDI injection payload detection',
+        'Tested privilege escalation vectors and system reconnaissance on multiple operating systems',
+      ]
+    },
+    {
+      date: 'Mar – Jun 2025',
+      role: 'SOC Intern',
+      company: 'Integra Security Services · Doha, Qatar',
+      bullets: [
+        'Worked with SOC team to analyse threats in real time',
+        'Gained hands-on experience with Darktrace Threat Visualiser for network monitoring and anomaly detection',
+      ]
+    },
+    {
+      date: 'Feb – Mar 2025',
+      role: 'UX/UI Design Intern',
+      company: 'Edgage AI · Doha, Qatar',
+      bullets: [
+        'Managed UX of LMS and Transport Management Platform',
+        'Created wireframes for web apps on Figma',
+      ]
+    },
+    {
+      date: 'Jun – Dec 2024',
+      role: 'Intern',
+      company: 'ILM Connect · Doha, Qatar',
+      bullets: [
+        'Developed and managed company websites on WordPress and WIX',
+        'Managed company social media accounts across multiple platforms',
+      ]
+    },
+  ];
+
+  const el = document.getElementById('expList');
+  experience.forEach(e => {
+    const item = document.createElement('div');
+    item.className = 'exp-item';
+    item.innerHTML = `
+      <div class="exp-date">${e.date}</div>
+      <div>
+        <div class="exp-role">${e.role}</div>
+        <div class="exp-company">${e.company}</div>
+        <ul class="exp-bullets">${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
+      </div>`;
+    el.appendChild(item);
+  });
+</script>
+</body>
+</html>
