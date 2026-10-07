@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after  { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg: #0e0e0e;
@@ -64,7 +64,15 @@
     .hero-inner { width: 100%; padding: 4rem 0 3rem; }
     .hero-eyebrow {
       font-size: 0.95rem; color: var(--muted);
-      margin-bottom: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .hero-name {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.1;
     }
     .hero-title {
       font-size: clamp(3rem, 8vw, 5.5rem);
@@ -132,12 +140,14 @@
       display: flex; align-items: center; gap: 0.5rem;
       padding: 0 2.5rem;
       white-space: nowrap;
-      color: var(--muted);
+      color: #c0c0c0;
       font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
     }
+    .logowall-item:hover { color: var(--white); }
     .logowall-item .dot {
       width: 6px; height: 6px; border-radius: 50%;
-      background: var(--sec); opacity: 0.5; flex-shrink: 0;
+      background: var(--sec); opacity: 0.9; flex-shrink: 0;
     }
 
     /* SKILLS */
@@ -248,10 +258,27 @@
     /* MOBILE */
     @media (max-width: 640px) {
       nav { padding: 1rem 1.25rem; }
-      .nav-links { gap: 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.8rem; }
       .container { padding: 0 1.25rem; }
-      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .exp-date { padding-top: 0; }
+
+      .hero-inner { padding: 2.5rem 0 2rem; }
+      .hero-name { font-size: 2rem; }
+      .hero-title { font-size: 2.8rem; }
+      .hero-desc { font-size: 0.95rem; }
+      .btn-icon { padding: 0.55rem 1rem; font-size: 0.82rem; }
+
+      .logowall-fade-l, .logowall-fade-r { width: 60px; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+      .exp-date { padding-top: 0; font-size: 0.75rem; }
+      .exp-role { font-size: 0.95rem; }
+
+      #skills, #projects, #experience { padding: 3rem 0; }
+      .section-title { font-size: 1.8rem; margin-bottom: 1.5rem; }
     }
   </style>
 </head>
@@ -270,7 +297,8 @@
   <section id="home">
     <div class="container">
       <div class="hero-inner">
-        <p class="hero-eyebrow">Hi, I'm Pallavi Sunil</p>
+        <p class="hero-eyebrow">Hi, I'm</p>
+        <div class="hero-name">Pallavi Sunil</div>
         <h1 class="hero-title">
           Cybersecurity<br>
           <span class="accent">Analyst</span>
