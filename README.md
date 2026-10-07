@@ -3,5 +3,5 @@
 
 ---
 
-[Demo](https://pallavi2743.github.io/pallavi-portfolio) 
+[Portfolio](https://pallavi2743.github.io/pallavi-portfolio) 
 
