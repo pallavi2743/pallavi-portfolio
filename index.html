@@ -460,9 +460,11 @@
       <div class="skill-body">
         <ul>${s.items.map(i => `<li>${i}</li>`).join('')}</ul>
       </div>`;
-    card.querySelector('.skill-card-header').addEventListener('click', () => {
-      card.classList.toggle('open');
-    });
+      card.querySelector('.skill-card-header').addEventListener('click', () => {
+        const isOpen = card.classList.contains('open');
+        document.querySelectorAll('.skill-card').forEach(c => c.classList.remove('open'));
+        if (!isOpen) card.classList.add('open');
+      });
     grid.appendChild(card);
   });
 
