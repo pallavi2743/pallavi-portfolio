@@ -98,7 +98,7 @@
     .hero-desc {
       font-size: 1.1rem; color: #c0c0c0;
       max-width: 560px; line-height: 1.7;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
     }
     .hero-desc strong { color: var(--white); font-weight: 500; }
     .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
@@ -152,7 +152,7 @@
     }
 
     /* SKILLS */
-    #skills { padding: 5rem 0; border-top: 1px solid var(--border); }
+    #skills { padding: 2.5rem 0 5rem; border-top: 1px solid var(--border); }
     .section-label { font-size: 0.85rem; color: var(--sec); margin-bottom: 0.5rem; letter-spacing: 0.02em; }
     .section-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 2.5rem; }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; align-items: start; }    .skill-card {
@@ -257,20 +257,6 @@
 
         /* MOBILE */
     @media (max-width: 768px) {
-            .hero-inner { text-align: center; }
-      .hero-links { justify-content: center; }
-      .hero-desc { margin-left: auto; margin-right: auto; }
-      .section-label { text-align: center; }
-      .section-title { text-align: center; }
-      .skills-grid { justify-items: center; }
-      .skill-card { width: 100%; }
-      .exp-date { text-align: center; }
-      .exp-role { text-align: center; }
-      .exp-company { text-align: center; }
-      .exp-bullets li { justify-content: center; }
-      .footer-inner { align-items: center; }
-      .footer-name { text-align: center; }
-      .footer-links { justify-content: center; }
       html, body { overflow-x: hidden; width: 100%; }
 
       nav {
@@ -380,7 +366,7 @@
         </div>
 
         <!-- LOGO WALL -->
-        <div class="logowall-wrap" style="margin-top:3rem;">
+        <div class="logowall-wrap" style="margin: top 2rem;">
           <div class="logowall-fade-l"></div>
           <div class="logowall-fade-r"></div>
           <div class="logowall-track" id="logoTrack"></div>
